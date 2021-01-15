@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="AccountModule">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/account.js"></script>
+    </head>
+    <body >
+<div ng-controller="AccountController as catCtrl">
+    <h1>Account Collection</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Group</th>
+                                <th>URI</th>
+          
+            </tr> 
+        </thead>
+        <tbody>
+            <tr ng-repeat="account in catCtrl.accounts">
+                <td>{{account.id}}</td>
+                <td>{{account.email}}</td>
+                <td>{{account.username}}</td>
+                <td>{{account.firstName}}</td>
+                <td>{{account.lastName}}</td>
+                <td>{{account.group}}</td>
+                <td>{{account.uri}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>Add a New Customer Account</h1>
+    <form ng-submit="catCtrl.addAccount(account)">
+    <fieldset>
+        <legend>Customer Account</legend>
+<label>Email</label>
+<input type="text" data-ng-model="account.email">
+<label>Username</label>
+<input type="text" data-ng-model="account.username">
+<label>First Name</label>
+<input type="text" data-ng-model="account.firstName">
+<label>Last Name</label>
+<input type="text" data-ng-model="account.lastName">
+<button>Add New Customer</button>
+</form>
+    </fieldset>
+</div>
+    </body>
+</html>
